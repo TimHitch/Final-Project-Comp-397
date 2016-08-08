@@ -1,0 +1,25 @@
+{
+  "name": "comp397-s2016-SideScrollerBuild",
+  "authors": [
+    "Tim Hitchcock",
+    "Tharmitha Manoharan"
+  ],
+  "description": "Assignment 4 - The Side Scroller",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "Scripts/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "EaselJS": "easeljs#^0.8.2",
+    "SoundJS": "^0.6.2",
+    "TweenJS": "^0.6.2",
+    "PreloadJS": "^0.6.2"
+  }
+}
