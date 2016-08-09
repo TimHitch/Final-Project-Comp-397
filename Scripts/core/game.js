@@ -15,6 +15,10 @@ var core;
     var over;
     var play;
     var instructions;
+    var menu2;
+    var play2;
+    var menu3;
+    //  let play3:scenes.Play3;
     // asset manifest for images and sounds
     var assetData = [
         { id: "startButton", src: "Assets/images/startButton.png" },
@@ -97,6 +101,24 @@ var core;
                 core.stage.removeAllChildren();
                 over = new scenes.Over();
                 currentScene = over;
+                break;
+            // Show the MENU2 Scene
+            case config.Scene.MENU2:
+                core.stage.removeAllChildren();
+                menu2 = new scenes.Menu2();
+                currentScene = menu2;
+                break;
+            // Show the PLAY2 Scene
+            case config.Scene.PLAY2:
+                core.stage.removeAllChildren();
+                play2 = new scenes.Play2();
+                currentScene = play2;
+                break;
+            // Show the MENU3 Scene
+            case config.Scene.MENU2:
+                core.stage.removeAllChildren();
+                menu3 = new scenes.Menu3();
+                currentScene = menu3;
                 break;
             // Shot the INSTRUCTIONS Scene
             case config.Scene.INSTRUCTIONS:

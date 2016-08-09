@@ -10,6 +10,9 @@ module scenes {
         private _liveIcons:createjs.Bitmap[];
         private _themeSound:createjs.AbstractSoundInstance;
 
+    
+        
+
         /**
          * Creates an instance of Menu.
          *
@@ -17,13 +20,18 @@ module scenes {
         constructor() {
             super();
         }
+      private _changeSence() {
+        this._scoreLabel.text = "Score: " + core.score;
+    }
+
 
         private _updateScoreBoard() {
             for (let i = core.startingLives - 1; i > core.currentLives - 1; i--) {
-                this._liveIcons[i].visible = false;
-            }
-            this._scoreLabel.text = "Score: " + core.score;
-        }
+             this._liveIcons[i].visible = false;
+           }
+        
+          
+       }
 
         /**
          *
@@ -76,6 +84,7 @@ module scenes {
             this._pokeball.update();
             this._player.update();
             this._collision.check(this._player, this._pokeball);
+            
 
             this._spearow.forEach(spearowid => {
                 spearowid.update();
@@ -96,9 +105,16 @@ module scenes {
                 core.scene = config.Scene.OVER;
                 core.changeScene();
             }
+
+            this._changeSence();
+             if (core.score > 200) {
+                createjs.Sound.stop();
+                createjs.Sound.play("");
+                core.scene = config.Scene.MENU2;
+                core.changeScene();
         }
-
-        // EVENT HANDLERS ++++++++++++++++
-
     }
+    
 }
+    }
+

@@ -11,7 +11,10 @@
 /// <reference path="../objects/vector2.ts"/>
 /// <reference path="../objects/gameobject.ts"/>
 /// <reference path="../managers/collision.ts"/>
+/// <reference path="../scenes/menu3.ts"/>
+/// <reference path="../scenes/play2.ts"/>
 /// <reference path="../scenes/over.ts"/>
+/// <reference path="../scenes/menu2.ts"/>
 /// <reference path="../scenes/play.ts"/>
 /// <reference path="../scenes/menu.ts"/>
 /// <reference path="../scenes/instructions.ts"/>

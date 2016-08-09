@@ -14,11 +14,13 @@ var scenes;
         function Play() {
             _super.call(this);
         }
+        Play.prototype._changeSence = function () {
+            this._scoreLabel.text = "Score: " + core.score;
+        };
         Play.prototype._updateScoreBoard = function () {
             for (var i = core.startingLives - 1; i > core.currentLives - 1; i--) {
                 this._liveIcons[i].visible = false;
             }
-            this._scoreLabel.text = "Score: " + core.score;
         };
         /**
          *
@@ -79,6 +81,13 @@ var scenes;
                 createjs.Sound.stop();
                 createjs.Sound.play("over");
                 core.scene = config.Scene.OVER;
+                core.changeScene();
+            }
+            this._changeSence();
+            if (core.score > 200) {
+                createjs.Sound.stop();
+                createjs.Sound.play("");
+                core.scene = config.Scene.MENU2;
                 core.changeScene();
             }
         };

@@ -28,6 +28,10 @@ namespace core {
     let over:scenes.Over;
     let play:scenes.Play;
     let instructions:scenes.Instructions;
+    let menu2:scenes.Menu2;
+    let play2:scenes.Play2;
+    let menu3:scenes.Menu3;
+  //  let play3:scenes.Play3;
 
 
     // asset manifest for images and sounds
@@ -120,6 +124,24 @@ namespace core {
                 stage.removeAllChildren();
                 over = new scenes.Over();
                 currentScene = over;
+                break;
+             // Show the MENU2 Scene
+            case config.Scene.MENU2:
+                stage.removeAllChildren();
+                menu2 = new scenes.Menu2();
+                currentScene = menu2;
+                break;
+            // Show the PLAY2 Scene
+            case config.Scene.PLAY2:
+                stage.removeAllChildren();
+                play2 = new scenes.Play2();
+                currentScene = play2;
+                break;
+            // Show the MENU3 Scene
+            case config.Scene.MENU2:
+                stage.removeAllChildren();
+                menu3 = new scenes.Menu3();
+                currentScene = menu3;
                 break;
             // Shot the INSTRUCTIONS Scene
             case config.Scene.INSTRUCTIONS:
