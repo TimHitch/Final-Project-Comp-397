@@ -26,11 +26,11 @@ module scenes {
                 "",
                 "You are one step away from becoming a Pokemon Master!.",
                 "Team Rocket has broke into the local pokemon center.",
-                "Team Rocket is trying to steal the rare pokemon",
-                "        Avoid being hit by Team rocket and their pokemon by moving the mouse",
-                "If you get hit to many times you will be knocked out",
-                "As you dodge from Team Rockets attacks save as many pokemon", 
-                "as you can to gain points to procced to become a Pokemon Master",
+                "and is trying to steal the rare pokemon",
+                "Avoid being hit by Team rocket and their pokemon by moving",
+                "the mouse. If you get hit to many times you will be knocked out",
+                "As you dodge Team Rockets attacks save as many pokemon", 
+                "as you can to gain points to become a Pokemon Master",
                 
             ];
             this._grass = new objects.Grass("background");

@@ -42,7 +42,7 @@ module scenes {
             this.addChild(this._grass);
 
             // island object
-            this._pokeball = new objects.Pokeball("Pokeball");
+            this._pokeball = new objects.Pokeball("pokeball");
             this.addChild(this._pokeball);
 
             // player object

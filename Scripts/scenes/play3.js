@@ -30,7 +30,7 @@ var scenes;
             this._grass = new objects.Grass("background");
             this.addChild(this._grass);
             // island object
-            this._pokeball = new objects.Pokeball("Pokeball");
+            this._pokeball = new objects.Pokeball("pokeball");
             this.addChild(this._pokeball);
             // player object
             this._player = new objects.Player("Ash");
