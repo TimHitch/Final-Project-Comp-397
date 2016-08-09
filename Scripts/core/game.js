@@ -29,7 +29,7 @@ var core;
         { id: "restartButton", src: "Assets/images/restartButton.png" },
         { id: "returnButton", src: "Assets/images/returnButton.png" },
         // lvl 3 images
-        { id: "TeamRocket", src: "Assets/images/TeamRocket.png" },
+        { id: "teamRocket", src: "Assets/images/TeamRocket.png" },
         { id: "coffing", src: "Assets/images/coffing.png" },
         { id: "snank", src: "Assets/images/snank.png" },
         { id: "rare", src: "Assets/images/rare.png" },
@@ -43,7 +43,7 @@ var core;
         { id: "charmander", src: "Assets/images/charmander.png" },
         { id: "bulba", src: "Assets/images/bulba.png" },
         // lvl 1 images
-        { id: "Pokeball", src: "Assets/images/pokeball.png" },
+        { id: "pokeball", src: "Assets/images/pokeball.png" },
         { id: "greypokeball", src: "Assets/images/greypokeball.png" },
         { id: "Ash", src: "Assets/images/TrainerAsh.png" },
         { id: "spearow", src: "Assets/images/spearow.png" },

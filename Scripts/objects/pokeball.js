@@ -50,7 +50,7 @@ var objects;
         Pokeball.prototype._checkBounds = function () {
             if (this.x <= (0 - this.width)) {
                 // TO-DO: change to asset load
-                this.image.src = "Assets/images/Pokeball";
+                this.image.src = "Assets/images/pokeball.png";
                 this._reset();
             }
         };

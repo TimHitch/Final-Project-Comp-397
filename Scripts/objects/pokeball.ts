@@ -50,7 +50,7 @@ module objects {
         private _checkBounds():void {
             if(this.x <=(0-this.width)) {
                 // TO-DO: change to asset load
-                (<HTMLImageElement> this.image).src = "Assets/images/Pokeball";
+                (<HTMLImageElement> this.image).src = "Assets/images/pokeball.png";
                 this._reset();
             }
         }

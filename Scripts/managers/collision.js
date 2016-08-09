@@ -45,6 +45,10 @@ var managers;
                     if (!object2.isColliding) {
                         object2.isColliding = true;
                         // if Ash collides with cloud
+                        if (object2.name === "spearow") {
+                            core.currentLives -= 1;
+                            createjs.Sound.play("baaaa");
+                        }
                         if (object2.name === "bulbaAttack") {
                             core.currentLives -= 1;
                             createjs.Sound.play("baaaa");
@@ -53,12 +57,12 @@ var managers;
                             core.currentLives -= 1;
                             createjs.Sound.play("baaaa");
                         }
-                        if (object2.name === "charmanderAttack``") {
+                        if (object2.name === "charmanderAttack") {
                             core.currentLives -= 1;
                             createjs.Sound.play("baaaa");
                         }
                         // if Ash collides with island
-                        if (object2.name === "Pokeball") {
+                        if (object2.name === "pokeball") {
                             // TO-DO: change to asset load
                             object2.image.src = "Assets/images/greypokeball.png";
                             core.score += 100;

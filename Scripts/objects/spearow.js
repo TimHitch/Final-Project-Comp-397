@@ -59,8 +59,8 @@ var objects;
          * @returns {void}
          */
         Spearow.prototype._reset = function () {
-            this._dx = -Math.floor((Math.random() * 3) + 5); // horizontal speed
-            this._dy = -Math.floor((Math.random() * 2) - 2); // vertical drift
+            this._dx = -Math.floor((Math.random() * 8) + 5); // horizontal speed
+            this._dy = -Math.floor((Math.random() * 5) - 2); // vertical drift
             // get a random y location
             this.y = Math.floor((Math.random() * (480 - (this.width * 0.5))) + (this.width * 0.5));
             this.x = 640 + this.width;
