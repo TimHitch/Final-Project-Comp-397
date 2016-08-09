@@ -31,6 +31,8 @@ namespace core {
     let menu2:scenes.Menu2;
     let play2:scenes.Play2;
     let menu3:scenes.Menu3;
+    let play3:scenes.Play3;
+    let menu4:scenes.Menu4;
   //  let play3:scenes.Play3;
 
 
@@ -150,7 +152,7 @@ namespace core {
                 currentScene = play3;
                 break;
             // Show the MENU4 Scene
-            case config.Scene.MENU3:
+            case config.Scene.MENU4:
                 stage.removeAllChildren();
                 menu4 = new scenes.Menu4();
                 currentScene = menu4;

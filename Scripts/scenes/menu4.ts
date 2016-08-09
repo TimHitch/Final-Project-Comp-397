@@ -3,8 +3,10 @@ module scenes {
         //  PRIVATE INSTANCE VARIABLES
         private _grass: objects.Grass;
         private _instructionsLabel: objects.Label;
+        private _startButton: objects.Button;
         private _returnButton: objects.Button;
         private _finalScoreLabel: objects.Label;
+        
     
         /**
          * Creates an instance of Instructions scene.
@@ -42,16 +44,19 @@ module scenes {
                     300, 40 * line + 40, true));
             }
             this._finalScoreLabel = new objects.Label(
-                "SCORE: " + core.score + " "+ "You've Completed lvl 2 Congrats!!!", "30px", "Planjer", "#000000",
+                "SCORE: " + core.score + " "+ "You've Completed lvl 3 Congrats!!!", "30px", "Planjer", "#000000",
                 320, 40, true
             );
             this.addChild(this._finalScoreLabel);
 
-            // Add Menu Label
+       // Add Menu Label
             this.addChild(this._instructionsLabel);
 
             // add the start button
-            
+            this._startButton = new objects.Button(
+                "startButton", 320, 360, true
+            );
+            this.addChild(this._startButton);
 
             this._returnButton = new objects.Button(
                 "returnButton", 320, 440, true
@@ -59,7 +64,7 @@ module scenes {
             this.addChild(this._returnButton);
 
             // Start button event listener
-            
+            this._startButton.on("click", this._startButtonClick, this);
             this._returnButton.on("click", this._returnButtonClick, this);
             // add this scene to the global scene container
             core.stage.addChild(this);
@@ -72,7 +77,11 @@ module scenes {
 
         // EVENT HANDLERS ++++++++++++++++
 
-    
+        private _startButtonClick(event: createjs.MouseEvent): void {
+            // Switch the scene
+            core.scene = config.Scene.MENU;
+            core.changeScene();
+        }
         private _returnButtonClick(event: createjs.MouseEvent): void {
             // Switch the scene
             core.scene = config.Scene.MENU;

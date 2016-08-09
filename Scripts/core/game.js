@@ -18,6 +18,8 @@ var core;
     var menu2;
     var play2;
     var menu3;
+    var play3;
+    var menu4;
     //  let play3:scenes.Play3;
     // asset manifest for images and sounds
     var assetData = [
@@ -127,7 +129,7 @@ var core;
                 currentScene = play3;
                 break;
             // Show the MENU4 Scene
-            case config.Scene.MENU3:
+            case config.Scene.MENU4:
                 core.stage.removeAllChildren();
                 menu4 = new scenes.Menu4();
                 currentScene = menu4;
