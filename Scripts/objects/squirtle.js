@@ -6,49 +6,26 @@ var __extends = (this && this.__extends) || function (d, b) {
 var objects;
 (function (objects) {
     /**
-     * This is the Spearow
-      object used in the game
+     * This is the Pokeball object used in the game
      *
      * @export
-     * @class Spearow
-     
+     * @class Pokeball
      * @extends {createjs.Bitmap}
      */
-    var Spearow = (function (_super) {
-        __extends(Spearow, _super);
+    var Squirtle = (function (_super) {
+        __extends(Squirtle, _super);
+        // PUBLIC PROPERTIES
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++
         /**
-         * Creates an instance of Spearow
-         .
+         * Creates an instance of Pokeball.
          *
          * @constructor
          * @param {string} imageString
          */
-        function Spearow(imageString) {
+        function Squirtle(imageString) {
             _super.call(this, imageString);
             this.start();
         }
-        Object.defineProperty(Spearow.prototype, "dy", {
-            // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
-            get: function () {
-                return this._dy;
-            },
-            set: function (newDy) {
-                this._dy = newDy;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Spearow.prototype, "dx", {
-            get: function () {
-                return this._dx;
-            },
-            set: function (newDx) {
-                this._dx = newDx;
-            },
-            enumerable: true,
-            configurable: true
-        });
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++
         /**
          * Resets the object outside of the viewport
@@ -58,12 +35,10 @@ var objects;
          * @method _reset
          * @returns {void}
          */
-        Spearow.prototype._reset = function () {
-            this._dx = -Math.floor((Math.random() * 3) + 5); // horizontal speed
-            this._dy = -Math.floor((Math.random() * 2) - 2); // vertical drift
-            // get a random y location
-            this.y = Math.floor((Math.random() * (480 - (this.width * 0.5))) + (this.width * 0.5));
-            this.x = 640 + this.width;
+        Squirtle.prototype._reset = function () {
+            this.y = Math.floor((Math.random() * (480 - (this.width * 1))) + (this.width * 0.5));
+            // get a random x location
+            this.x = 840 + this.width;
         };
         /**
          * This method checks if the object has reached its boundaries
@@ -72,9 +47,10 @@ var objects;
          * @method _checkBounds
          * @returns {void}
          */
-        Spearow.prototype._checkBounds = function () {
+        Squirtle.prototype._checkBounds = function () {
             if (this.x <= (0 - this.width)) {
-                this.image.src = "Assets/images/spearow.png";
+                // TO-DO: change to asset load
+                this.image.src = "Assets/images/Squirtle.png";
                 this._reset();
             }
         };
@@ -87,12 +63,13 @@ var objects;
          * @method start
          * @returns {void}
          */
-        Spearow.prototype.start = function () {
+        Squirtle.prototype.start = function () {
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             this._reset();
+            this._dx = -5; // 5px per frame down
         };
         /**
          * This method updates the object's properties
@@ -102,15 +79,14 @@ var objects;
          * @method update
          * @returns {void}
          */
-        Spearow.prototype.update = function () {
-            this.y += this._dy;
+        Squirtle.prototype.update = function () {
             this.x += this._dx;
             this._checkBounds();
             this.position.x = this.x;
             this.position.y = this.y;
         };
-        return Spearow;
+        return Squirtle;
     }(objects.GameObject));
-    objects.Spearow = Spearow;
+    objects.Squirtle = Squirtle;
 })(objects || (objects = {}));
-//# sourceMappingURL=spearow.js.map
+//# sourceMappingURL=squirtle.js.map

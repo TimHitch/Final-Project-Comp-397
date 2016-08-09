@@ -38,20 +38,43 @@ namespace core {
 
     // asset manifest for images and sounds
     let assetData:objects.Asset[] = [
+        //menu images
         {id: "startButton", src: "Assets/images/startButton.png"},
         {id: "instructionsButton", src: "Assets/images/instructionsButton.png"},
         {id: "restartButton", src: "Assets/images/restartButton.png"},
         {id: "returnButton", src: "Assets/images/returnButton.png"},
+
+        // lvl 3 images
+        {id: "TeamRocket", src: "Assets/images/TeamRocket.png"},
+        {id: "coffing", src: "Assets/images/coffing.png"},
+        {id: "snank", src: "Assets/images/snank.png"},
+        {id: "rare", src: "Assets/images/rare.png"},
+        {id: "rare2", src: "Assets/images/rare2.png"},
+        {id: "rare3", src: "Assets/images/rare3.png"},
+
+        // lvl 2 images
+        {id: "charmanderAttack", src: "Assets/images/charmanderAttack.png"},
+        {id: "squirtleAttack", src: "Assets/images/squirtleAttack.png"},
+        {id: "bulbaAttack", src: "Assets/images/bulbaAttack.png"},
+        {id: "squirtle", src: "Assets/images/squirtle.png"},
+        {id: "charmander", src: "Assets/images/charmander.png"},
+        {id: "bulba", src: "Assets/images/bulba.png"},
+       
+        // lvl 1 images
         {id: "Pokeball", src: "Assets/images/pokeball.png"},
         {id: "greypokeball", src: "Assets/images/greypokeball.png"},
         {id: "Ash", src: "Assets/images/TrainerAsh.png"},
         {id: "spearow", src: "Assets/images/spearow.png"},
         {id: "background", src: "Assets/images/background.png"},
         {id: "live", src: "Assets/images/live.png"},
+
+        // audio files
         {id: "baaaa", src: "Assets/audio/baaaa.wav"},
         {id: "bleep", src: "Assets/audio/bleep.wav"},
         {id: "pokemon", src: "Assets/audio/pokemon.mp3"},
-        {id: "over", src: "Assets/audio/over.mp3"}
+        {id: "over", src: "Assets/audio/over.mp3"},
+        {id: "winner", src: "Assets/audio/winner.wav"}
+        
     ];
 
     /**

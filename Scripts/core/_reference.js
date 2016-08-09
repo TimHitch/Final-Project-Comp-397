@@ -6,8 +6,14 @@
 /// <reference path="../objects/scene.ts"/>
 /// <reference path="../objects/grass.ts"/>
 /// <reference path="../objects/pokeball.ts"/>
+/// <reference path="../objects/bulba.ts"/>
+/// <reference path="../objects/squirtle.ts"/>
+/// <reference path="../objects/charmander.ts"/>
 /// <reference path="../objects/player.ts"/>
 /// <reference path="../objects/spearow.ts"/>
+/// <reference path="../objects/bulbaAttack.ts"/>
+/// <reference path="../objects/squirtleAttack.ts"/>
+/// <reference path="../objects/charmanderAttack.ts"/>
 /// <reference path="../objects/vector2.ts"/>
 /// <reference path="../objects/gameobject.ts"/>
 /// <reference path="../managers/collision.ts"/>

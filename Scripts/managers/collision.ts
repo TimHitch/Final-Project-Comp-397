@@ -43,13 +43,22 @@ module managers {
                         if (object1.x > object2.x) object1.x += (object2.width - (object1.x - object2.x) + 1);
                         else object2.x += (object1.width - (object2.x - object1.x) + 1);
                     }
+                    
                     // if first object is player
                 } else if (object1.name === "Ash") {
                     if (!object2.isColliding) {
                         object2.isColliding = true;
 
                         // if Ash collides with cloud
-                        if (object2.name === "spearow") {
+                        if (object2.name === "bulbaAttack") {
+                            core.currentLives -= 1;
+                            createjs.Sound.play("baaaa");
+                        }
+                        if (object2.name === "squirtleAttack") {
+                            core.currentLives -= 1;
+                            createjs.Sound.play("baaaa");
+                        }
+                        if (object2.name === "charmanderAttack``") {
                             core.currentLives -= 1;
                             createjs.Sound.play("baaaa");
                         }
@@ -61,6 +70,27 @@ module managers {
                             core.score += 100;
                             createjs.Sound.play("bleep");
                         }
+                         if (object2.name === "bulba") {
+                            // TO-DO: change to asset load
+                            (<HTMLImageElement> object2.image).src = "Assets/images/greypokeball.png";
+                            core.score += 100;
+                            createjs.Sound.play("bleep");
+                        }
+                          if (object2.name === "squirtle") {
+                            // TO-DO: change to asset load
+                            (<HTMLImageElement> object2.image).src = "Assets/images/greypokeball.png";
+                            core.score += 100;
+                            createjs.Sound.play("bleep");
+                        }
+                         if (object2.name === "charmander") {
+                            // TO-DO: change to asset load
+                            (<HTMLImageElement> object2.image).src = "Assets/images/greypokeball.png";
+                            core.score += 100;
+                            createjs.Sound.play("bleep");
+                        }
+
+
+                    
                     }
                 }
             } else if (object1.name === "Ash") {

@@ -45,12 +45,38 @@ var managers;
                     if (!object2.isColliding) {
                         object2.isColliding = true;
                         // if Ash collides with cloud
-                        if (object2.name === "spearow") {
+                        if (object2.name === "bulbaAttack") {
+                            core.currentLives -= 1;
+                            createjs.Sound.play("baaaa");
+                        }
+                        if (object2.name === "squirtleAttack") {
+                            core.currentLives -= 1;
+                            createjs.Sound.play("baaaa");
+                        }
+                        if (object2.name === "charmanderAttack``") {
                             core.currentLives -= 1;
                             createjs.Sound.play("baaaa");
                         }
                         // if Ash collides with island
                         if (object2.name === "Pokeball") {
+                            // TO-DO: change to asset load
+                            object2.image.src = "Assets/images/greypokeball.png";
+                            core.score += 100;
+                            createjs.Sound.play("bleep");
+                        }
+                        if (object2.name === "bulba") {
+                            // TO-DO: change to asset load
+                            object2.image.src = "Assets/images/greypokeball.png";
+                            core.score += 100;
+                            createjs.Sound.play("bleep");
+                        }
+                        if (object2.name === "squirtle") {
+                            // TO-DO: change to asset load
+                            object2.image.src = "Assets/images/greypokeball.png";
+                            core.score += 100;
+                            createjs.Sound.play("bleep");
+                        }
+                        if (object2.name === "charmander") {
                             // TO-DO: change to asset load
                             object2.image.src = "Assets/images/greypokeball.png";
                             core.score += 100;

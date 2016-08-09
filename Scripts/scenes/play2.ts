@@ -3,8 +3,14 @@ module scenes {
         //  PRIVATE INSTANCE VARIABLES
         private _grass:objects.Grass;
         private _pokeball:objects.Pokeball;
+        private _bulba:objects.Bulba;
+        private _squirtle:objects.Squirtle;
+        private _charmander:objects.Charmander;
+        private _bulbaAttack:objects.BulbaAttack[];
+        private _squirtleAttack:objects.SquirtleAttack[];
+        private _charmanderAttack:objects.CharmanderAttack[];
         private _player:objects.Player;
-        private _spearow:objects.Spearow[];
+    //    private _bulbaAttack:objects.Spearow[];
         private _collision:managers.Collision;
         private _scoreLabel:objects.Label;
         private _liveIcons:createjs.Bitmap[];
@@ -42,8 +48,14 @@ module scenes {
             this.addChild(this._grass);
 
             // island object
-            this._pokeball = new objects.Pokeball("Pokeball");
-            this.addChild(this._pokeball);
+            this._bulba = new objects.Bulba("bulba");
+            this.addChild(this._bulba);
+
+            this._squirtle = new objects.Squirtle("squirtle");
+            this.addChild(this._squirtle);
+
+            this._charmander = new objects.Charmander("charmander");
+            this.addChild(this._charmander);
 
             // player object
             this._player = new objects.Player("Ash");
@@ -52,10 +64,20 @@ module scenes {
             this._themeSound.loop = -1;
 
             // charged cloud array
-            this._spearow = new Array<objects.Spearow>();
+            this._bulbaAttack = new Array<objects.BulbaAttack>();
             for (let i = 0; i < 3; i++) {
-                this._spearow.push(new objects.Spearow("spearow"));
-                this.addChild(this._spearow[i]);
+                this._bulbaAttack.push(new objects.BulbaAttack("bulbaAttack"));
+                this.addChild(this._bulbaAttack[i]);
+            }
+            this._squirtleAttack = new Array<objects.SquirtleAttack>();
+            for (let i = 0; i < 3; i++) {
+                this._squirtleAttack.push(new objects.SquirtleAttack("squirtleAttack"));
+                this.addChild(this._squirtleAttack[i]);
+            }
+            this._charmanderAttack = new Array<objects.CharmanderAttack>();
+            for (let i = 0; i < 3; i++) {
+                this._charmanderAttack.push(new objects.CharmanderAttack("charmanderAttack"));
+                this.addChild(this._charmanderAttack[i]);
             }
 
             // include a collision managers
@@ -81,15 +103,40 @@ module scenes {
 
         public Update():void {
             this._grass.update();
-            this._pokeball.update();
-            this._player.update();
-            this._collision.check(this._player, this._pokeball);
-            
+            this._bulba.update();
+            this._squirtle.update();
+            this._charmander.update();
 
-            this._spearow.forEach(spearowid => {
+
+            this._player.update();
+            this._collision.check(this._player, this._bulba);
+            this._collision.check(this._player, this._squirtle);
+            this._collision.check(this._player, this._charmander);
+
+            this._bulbaAttack.forEach(spearowid => {
                 spearowid.update();
                 this._collision.check(this._player, spearowid);
-                this._spearow.forEach(anotherspearowid => {
+                this._bulbaAttack.forEach(anotherspearowid => {
+                    if (anotherspearowid != spearowid &&
+                        spearowid.isColliding === anotherspearowid.isColliding) {
+                        this._collision.check(spearowid, anotherspearowid);
+                    }
+                })
+            });
+            this._squirtleAttack.forEach(spearowid => {
+                spearowid.update();
+                this._collision.check(this._player, spearowid);
+                this._squirtleAttack.forEach(anotherspearowid => {
+                    if (anotherspearowid != spearowid &&
+                        spearowid.isColliding === anotherspearowid.isColliding) {
+                        this._collision.check(spearowid, anotherspearowid);
+                    }
+                })
+            });
+             this._charmanderAttack.forEach(spearowid => {
+                spearowid.update();
+                this._collision.check(this._player, spearowid);
+                this._charmanderAttack.forEach(anotherspearowid => {
                     if (anotherspearowid != spearowid &&
                         spearowid.isColliding === anotherspearowid.isColliding) {
                         this._collision.check(spearowid, anotherspearowid);
@@ -107,9 +154,9 @@ module scenes {
             }
 
             this._changeSence();
-             if (core.score >= 500) {
+             if (core.score >= 1000) {
                 createjs.Sound.stop();
-                createjs.Sound.play("");
+                createjs.Sound.play("winner");
                 core.scene = config.Scene.MENU3;
                 core.changeScene();
         }

@@ -14,8 +14,8 @@ var objects;
      
      * @extends {createjs.Bitmap}
      */
-    var Spearow = (function (_super) {
-        __extends(Spearow, _super);
+    var SquirtleAttack = (function (_super) {
+        __extends(SquirtleAttack, _super);
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++
         /**
          * Creates an instance of Spearow
@@ -24,11 +24,11 @@ var objects;
          * @constructor
          * @param {string} imageString
          */
-        function Spearow(imageString) {
+        function SquirtleAttack(imageString) {
             _super.call(this, imageString);
             this.start();
         }
-        Object.defineProperty(Spearow.prototype, "dy", {
+        Object.defineProperty(SquirtleAttack.prototype, "dy", {
             // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
             get: function () {
                 return this._dy;
@@ -39,7 +39,7 @@ var objects;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(Spearow.prototype, "dx", {
+        Object.defineProperty(SquirtleAttack.prototype, "dx", {
             get: function () {
                 return this._dx;
             },
@@ -58,9 +58,9 @@ var objects;
          * @method _reset
          * @returns {void}
          */
-        Spearow.prototype._reset = function () {
-            this._dx = -Math.floor((Math.random() * 3) + 5); // horizontal speed
-            this._dy = -Math.floor((Math.random() * 2) - 2); // vertical drift
+        SquirtleAttack.prototype._reset = function () {
+            this._dx = -Math.floor((Math.random() * 8) + 5); // horizontal speed
+            this._dy = -Math.floor((Math.random() * 7) - 2); // vertical drift
             // get a random y location
             this.y = Math.floor((Math.random() * (480 - (this.width * 0.5))) + (this.width * 0.5));
             this.x = 640 + this.width;
@@ -72,9 +72,9 @@ var objects;
          * @method _checkBounds
          * @returns {void}
          */
-        Spearow.prototype._checkBounds = function () {
+        SquirtleAttack.prototype._checkBounds = function () {
             if (this.x <= (0 - this.width)) {
-                this.image.src = "Assets/images/spearow.png";
+                this.image.src = "Assets/images/squirtleAttack.png";
                 this._reset();
             }
         };
@@ -87,7 +87,7 @@ var objects;
          * @method start
          * @returns {void}
          */
-        Spearow.prototype.start = function () {
+        SquirtleAttack.prototype.start = function () {
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
@@ -102,15 +102,15 @@ var objects;
          * @method update
          * @returns {void}
          */
-        Spearow.prototype.update = function () {
+        SquirtleAttack.prototype.update = function () {
             this.y += this._dy;
             this.x += this._dx;
             this._checkBounds();
             this.position.x = this.x;
             this.position.y = this.y;
         };
-        return Spearow;
+        return SquirtleAttack;
     }(objects.GameObject));
-    objects.Spearow = Spearow;
+    objects.SquirtleAttack = SquirtleAttack;
 })(objects || (objects = {}));
-//# sourceMappingURL=spearow.js.map
+//# sourceMappingURL=squirtleAttack.js.map

@@ -14,8 +14,8 @@ var objects;
      
      * @extends {createjs.Bitmap}
      */
-    var Spearow = (function (_super) {
-        __extends(Spearow, _super);
+    var BulbaAttack = (function (_super) {
+        __extends(BulbaAttack, _super);
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++
         /**
          * Creates an instance of Spearow
@@ -24,11 +24,11 @@ var objects;
          * @constructor
          * @param {string} imageString
          */
-        function Spearow(imageString) {
+        function BulbaAttack(imageString) {
             _super.call(this, imageString);
             this.start();
         }
-        Object.defineProperty(Spearow.prototype, "dy", {
+        Object.defineProperty(BulbaAttack.prototype, "dy", {
             // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
             get: function () {
                 return this._dy;
@@ -39,7 +39,7 @@ var objects;
             enumerable: true,
             configurable: true
         });
-        Object.defineProperty(Spearow.prototype, "dx", {
+        Object.defineProperty(BulbaAttack.prototype, "dx", {
             get: function () {
                 return this._dx;
             },
@@ -58,7 +58,7 @@ var objects;
          * @method _reset
          * @returns {void}
          */
-        Spearow.prototype._reset = function () {
+        BulbaAttack.prototype._reset = function () {
             this._dx = -Math.floor((Math.random() * 3) + 5); // horizontal speed
             this._dy = -Math.floor((Math.random() * 2) - 2); // vertical drift
             // get a random y location
@@ -72,9 +72,9 @@ var objects;
          * @method _checkBounds
          * @returns {void}
          */
-        Spearow.prototype._checkBounds = function () {
+        BulbaAttack.prototype._checkBounds = function () {
             if (this.x <= (0 - this.width)) {
-                this.image.src = "Assets/images/spearow.png";
+                this.image.src = "Assets/images/bulbaAttack.png";
                 this._reset();
             }
         };
@@ -87,7 +87,7 @@ var objects;
          * @method start
          * @returns {void}
          */
-        Spearow.prototype.start = function () {
+        BulbaAttack.prototype.start = function () {
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
@@ -102,15 +102,15 @@ var objects;
          * @method update
          * @returns {void}
          */
-        Spearow.prototype.update = function () {
+        BulbaAttack.prototype.update = function () {
             this.y += this._dy;
             this.x += this._dx;
             this._checkBounds();
             this.position.x = this.x;
             this.position.y = this.y;
         };
-        return Spearow;
+        return BulbaAttack;
     }(objects.GameObject));
-    objects.Spearow = Spearow;
+    objects.BulbaAttack = BulbaAttack;
 })(objects || (objects = {}));
-//# sourceMappingURL=spearow.js.map
+//# sourceMappingURL=bulbaAttack.js.map

@@ -1,10 +1,4 @@
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var objects;
-(function (objects) {
+module objects {
     /**
      * This is the Spearow
       object used in the game
@@ -14,8 +8,28 @@ var objects;
      
      * @extends {createjs.Bitmap}
      */
-    var Spearow = (function (_super) {
-        __extends(Spearow, _super);
+    export class CharmanderAttack extends GameObject {
+        // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++
+        private _dy:number;
+        private _dx:number;
+
+        // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
+        get dy():number {
+            return this._dy;
+        }
+
+        set dy(newDy:number) {
+            this._dy = newDy;
+        }
+
+        get dx():number {
+            return this._dx;
+        }
+
+        set dx(newDx:number) {
+            this._dx = newDx;
+        }
+
         // CONSTRUCTORS +++++++++++++++++++++++++++++++++++++++++++
         /**
          * Creates an instance of Spearow
@@ -24,31 +38,12 @@ var objects;
          * @constructor
          * @param {string} imageString
          */
-        function Spearow(imageString) {
-            _super.call(this, imageString);
+        constructor(imageString:string) {
+            super(imageString);
+
             this.start();
         }
-        Object.defineProperty(Spearow.prototype, "dy", {
-            // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++
-            get: function () {
-                return this._dy;
-            },
-            set: function (newDy) {
-                this._dy = newDy;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(Spearow.prototype, "dx", {
-            get: function () {
-                return this._dx;
-            },
-            set: function (newDx) {
-                this._dx = newDx;
-            },
-            enumerable: true,
-            configurable: true
-        });
+
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++
         /**
          * Resets the object outside of the viewport
@@ -58,13 +53,15 @@ var objects;
          * @method _reset
          * @returns {void}
          */
-        Spearow.prototype._reset = function () {
+        private _reset():void {
             this._dx = -Math.floor((Math.random() * 3) + 5); // horizontal speed
             this._dy = -Math.floor((Math.random() * 2) - 2); // vertical drift
             // get a random y location
             this.y = Math.floor((Math.random() * (480 - (this.width * 0.5))) + (this.width * 0.5));
+
             this.x = 640 + this.width;
-        };
+        }
+
         /**
          * This method checks if the object has reached its boundaries
          *
@@ -72,13 +69,15 @@ var objects;
          * @method _checkBounds
          * @returns {void}
          */
-        Spearow.prototype._checkBounds = function () {
+        private _checkBounds():void {
             if (this.x <= (0 - this.width)) {
-                this.image.src = "Assets/images/spearow.png";
+                (<HTMLImageElement> this.image).src = "Assets/images/charmanderAttack.png";
                 this._reset();
             }
-        };
+        }
+
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++
+
         /**
          * This method is used to initialize public properties
          * and private instance variables
@@ -87,13 +86,14 @@ var objects;
          * @method start
          * @returns {void}
          */
-        Spearow.prototype.start = function () {
+        public start():void {
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             this._reset();
-        };
+        }
+
         /**
          * This method updates the object's properties
          * every time it's called
@@ -102,15 +102,13 @@ var objects;
          * @method update
          * @returns {void}
          */
-        Spearow.prototype.update = function () {
+        public update():void {
             this.y += this._dy;
             this.x += this._dx;
             this._checkBounds();
             this.position.x = this.x;
             this.position.y = this.y;
-        };
-        return Spearow;
-    }(objects.GameObject));
-    objects.Spearow = Spearow;
-})(objects || (objects = {}));
-//# sourceMappingURL=spearow.js.map
+           
+        }
+    }
+}

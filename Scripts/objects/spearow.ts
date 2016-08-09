@@ -54,8 +54,8 @@ module objects {
          * @returns {void}
          */
         private _reset():void {
-            this._dx = -Math.floor((Math.random() * 8) + 5); // horizontal speed
-            this._dy = -Math.floor((Math.random() * 7) - 2); // vertical drift
+            this._dx = -Math.floor((Math.random() * 3) + 5); // horizontal speed
+            this._dy = -Math.floor((Math.random() * 2) - 2); // vertical drift
             // get a random y location
             this.y = Math.floor((Math.random() * (480 - (this.width * 0.5))) + (this.width * 0.5));
 
