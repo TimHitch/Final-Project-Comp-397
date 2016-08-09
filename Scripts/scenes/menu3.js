@@ -21,12 +21,13 @@ var scenes;
             var gameInstructions = [];
             var instructionsArray = [
                 "",
-                "Now that you have enough pokeballs its time to catch em all.",
-                "Collect as many pokemon as you can but watch out for their attacks",
-                "Avoid being hit by pokemon attacks by moving the mouse",
+                "You are one step away from becoming a Pokemon Master!.",
+                "Team Rocket has broke into the local pokemon center.",
+                "Team Rocket is trying to steal the rare pokemon",
+                "        Avoid being hit by Team rocket and their pokemon by moving the mouse",
                 "If you get hit to many times you will be knocked out",
-                "As you dodge from the pokemon attacks capture as many pokemon",
-                "as you can to gain points to procced to the final lvl",
+                "As you dodge from Team Rockets attacks save as many pokemon",
+                "as you can to gain points to procced to become a Pokemon Master",
             ];
             this._grass = new objects.Grass("background");
             this.addChild(this._grass);
@@ -36,12 +37,12 @@ var scenes;
                 gameInstructions[line].y = 20 + (2 * line);
                 this.addChild(new objects.Label(instructionsArray[line], "22px", "Broadway", "#E03C18", 300, 40 * line + 40, true));
             }
-            this._finalScoreLabel = new objects.Label("SCORE: " + core.score + " " + "You've Completed lvl 1 Congrats!!!", "30px", "Planjer", "#000000", 320, 40, true);
+            this._finalScoreLabel = new objects.Label("SCORE: " + core.score + " " + "You've Completed lvl 2 Congrats!!!", "30px", "Planjer", "#000000", 320, 40, true);
             this.addChild(this._finalScoreLabel);
             // Add Menu Label
             this.addChild(this._instructionsLabel);
             // add the start button
-            this._startButton = new objects.Button("startButton", 320, 340, true);
+            this._startButton = new objects.Button("startButton", 320, 360, true);
             this.addChild(this._startButton);
             this._returnButton = new objects.Button("returnButton", 320, 440, true);
             this.addChild(this._returnButton);
@@ -58,12 +59,12 @@ var scenes;
         // EVENT HANDLERS ++++++++++++++++
         Menu3.prototype._startButtonClick = function (event) {
             // Switch the scene
-            core.scene = config.Scene.PLAY2;
+            core.scene = config.Scene.PLAY3;
             core.changeScene();
         };
         Menu3.prototype._returnButtonClick = function (event) {
             // Switch the scene
-            core.scene = config.Scene.PLAY;
+            core.scene = config.Scene.MENU;
             core.changeScene();
         };
         return Menu3;

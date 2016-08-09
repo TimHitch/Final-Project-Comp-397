@@ -115,10 +115,22 @@ var core;
                 currentScene = play2;
                 break;
             // Show the MENU3 Scene
-            case config.Scene.MENU2:
+            case config.Scene.MENU3:
                 core.stage.removeAllChildren();
                 menu3 = new scenes.Menu3();
                 currentScene = menu3;
+                break;
+            // Show the PLAY3 Scene
+            case config.Scene.PLAY3:
+                core.stage.removeAllChildren();
+                play3 = new scenes.Play3();
+                currentScene = play3;
+                break;
+            // Show the MENU4 Scene
+            case config.Scene.MENU3:
+                core.stage.removeAllChildren();
+                menu4 = new scenes.Menu4();
+                currentScene = menu4;
                 break;
             // Shot the INSTRUCTIONS Scene
             case config.Scene.INSTRUCTIONS:

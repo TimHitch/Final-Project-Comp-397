@@ -14,5 +14,7 @@ module config {
         public static PLAY2:number = 5;
         public static MENU3:number = 6;
         public static PLAY3:number = 7;
+        public static MENU4:number = 8;
+        
     }
 }

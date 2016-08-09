@@ -17,6 +17,7 @@ var config;
         Scene.PLAY2 = 5;
         Scene.MENU3 = 6;
         Scene.PLAY3 = 7;
+        Scene.MENU4 = 8;
         return Scene;
     }());
     config.Scene = Scene;
