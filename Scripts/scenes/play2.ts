@@ -154,7 +154,7 @@ module scenes {
             }
 
             this._changeSence();
-             if (core.score >= 1000) {
+             if (core.score >= 1200) {
                 createjs.Sound.stop();
                 createjs.Sound.play("winner");
                 core.scene = config.Scene.MENU3;

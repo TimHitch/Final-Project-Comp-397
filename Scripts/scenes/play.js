@@ -84,7 +84,7 @@ var scenes;
                 core.changeScene();
             }
             this._changeSence();
-            if (core.score >= 100) {
+            if (core.score >= 500) {
                 createjs.Sound.stop();
                 createjs.Sound.play("winnner");
                 core.scene = config.Scene.MENU2;
