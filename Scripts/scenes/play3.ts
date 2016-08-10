@@ -154,10 +154,10 @@ module scenes {
             }
 
             this._changeSence();
-             if (core.score >= 2400) {
+             if (core.score >= 3000) {
                 createjs.Sound.stop();
                 createjs.Sound.play("winner");
-                core.scene = config.Scene.MENU3;
+                core.scene = config.Scene.MENU4;
                 core.changeScene();
         }
     }
