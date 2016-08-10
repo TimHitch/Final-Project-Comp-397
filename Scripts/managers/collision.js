@@ -61,6 +61,18 @@ var managers;
                             core.currentLives -= 1;
                             createjs.Sound.play("baaaa");
                         }
+                        if (object2.name === "teamrocket") {
+                            core.currentLives -= 1;
+                            createjs.Sound.play("baaaa");
+                        }
+                        if (object2.name === "coffing") {
+                            core.currentLives -= 1;
+                            createjs.Sound.play("baaaa");
+                        }
+                        if (object2.name === "snake") {
+                            core.currentLives -= 1;
+                            createjs.Sound.play("baaaa");
+                        }
                         // if Ash collides with island
                         if (object2.name === "pokeball") {
                             // TO-DO: change to asset load
@@ -81,6 +93,24 @@ var managers;
                             createjs.Sound.play("bleep");
                         }
                         if (object2.name === "charmander") {
+                            // TO-DO: change to asset load
+                            object2.image.src = "Assets/images/greypokeball.png";
+                            core.score += 100;
+                            createjs.Sound.play("bleep");
+                        }
+                        if (object2.name === "rare") {
+                            // TO-DO: change to asset load
+                            object2.image.src = "Assets/images/greypokeball.png";
+                            core.score += 100;
+                            createjs.Sound.play("bleep");
+                        }
+                        if (object2.name === "rare2") {
+                            // TO-DO: change to asset load
+                            object2.image.src = "Assets/images/greypokeball.png";
+                            core.score += 100;
+                            createjs.Sound.play("bleep");
+                        }
+                        if (object2.name === "rare3") {
                             // TO-DO: change to asset load
                             object2.image.src = "Assets/images/greypokeball.png";
                             core.score += 100;

@@ -3,8 +3,14 @@ module scenes {
         //  PRIVATE INSTANCE VARIABLES
         private _grass:objects.Grass;
         private _pokeball:objects.Pokeball;
+        private _rare:objects.Rare;
+        private _rare2:objects.Rare2;
+        private _rare3:objects.Rare3;
+        private _teamRocket:objects.TeamRocket[];
+        private _coffing:objects.Coffing[];
+        private _snake:objects.Snake[];
         private _player:objects.Player;
-        private _spearow:objects.Spearow[];
+    //    private _teamRocket:objects.Spearow[];
         private _collision:managers.Collision;
         private _scoreLabel:objects.Label;
         private _liveIcons:createjs.Bitmap[];
@@ -42,8 +48,14 @@ module scenes {
             this.addChild(this._grass);
 
             // island object
-            this._pokeball = new objects.Pokeball("pokeball");
-            this.addChild(this._pokeball);
+            this._rare = new objects.Rare("rare");
+            this.addChild(this._rare);
+
+            this._rare2 = new objects.Rare2("rare2");
+            this.addChild(this._rare2);
+
+            this._rare3 = new objects.Rare3("rare3");
+            this.addChild(this._rare3);
 
             // player object
             this._player = new objects.Player("Ash");
@@ -52,10 +64,20 @@ module scenes {
             this._themeSound.loop = -1;
 
             // charged cloud array
-            this._spearow = new Array<objects.Spearow>();
+            this._teamRocket = new Array<objects.TeamRocket>();
             for (let i = 0; i < 3; i++) {
-                this._spearow.push(new objects.Spearow("spearow"));
-                this.addChild(this._spearow[i]);
+                this._teamRocket.push(new objects.TeamRocket("teamRocket"));
+                this.addChild(this._teamRocket[i]);
+            }
+            this._coffing = new Array<objects.Coffing>();
+            for (let i = 0; i < 3; i++) {
+                this._coffing.push(new objects.Coffing("coffing"));
+                this.addChild(this._coffing[i]);
+            }
+            this._snake = new Array<objects.Snake>();
+            for (let i = 0; i < 3; i++) {
+                this._snake.push(new objects.Snake("snake"));
+                this.addChild(this._snake[i]);
             }
 
             // include a collision managers
@@ -81,15 +103,40 @@ module scenes {
 
         public Update():void {
             this._grass.update();
-            this._pokeball.update();
-            this._player.update();
-            this._collision.check(this._player, this._pokeball);
-            
+            this._rare.update();
+            this._rare2.update();
+            this._rare3.update();
 
-            this._spearow.forEach(spearowid => {
+
+            this._player.update();
+            this._collision.check(this._player, this._rare);
+            this._collision.check(this._player, this._rare2);
+            this._collision.check(this._player, this._rare3);
+
+            this._teamRocket.forEach(spearowid => {
                 spearowid.update();
                 this._collision.check(this._player, spearowid);
-                this._spearow.forEach(anotherspearowid => {
+                this._teamRocket.forEach(anotherspearowid => {
+                    if (anotherspearowid != spearowid &&
+                        spearowid.isColliding === anotherspearowid.isColliding) {
+                        this._collision.check(spearowid, anotherspearowid);
+                    }
+                })
+            });
+            this._coffing.forEach(spearowid => {
+                spearowid.update();
+                this._collision.check(this._player, spearowid);
+                this._coffing.forEach(anotherspearowid => {
+                    if (anotherspearowid != spearowid &&
+                        spearowid.isColliding === anotherspearowid.isColliding) {
+                        this._collision.check(spearowid, anotherspearowid);
+                    }
+                })
+            });
+             this._snake.forEach(spearowid => {
+                spearowid.update();
+                this._collision.check(this._player, spearowid);
+                this._snake.forEach(anotherspearowid => {
                     if (anotherspearowid != spearowid &&
                         spearowid.isColliding === anotherspearowid.isColliding) {
                         this._collision.check(spearowid, anotherspearowid);
@@ -107,10 +154,10 @@ module scenes {
             }
 
             this._changeSence();
-             if (core.score >= 1700) {
+             if (core.score >= 2400) {
                 createjs.Sound.stop();
                 createjs.Sound.play("winner");
-                core.scene = config.Scene.MENU4;
+                core.scene = config.Scene.MENU3;
                 core.changeScene();
         }
     }

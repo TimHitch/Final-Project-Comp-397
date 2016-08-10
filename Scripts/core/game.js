@@ -29,9 +29,9 @@ var core;
         { id: "restartButton", src: "Assets/images/restartButton.png" },
         { id: "returnButton", src: "Assets/images/returnButton.png" },
         // lvl 3 images
-        { id: "teamRocket", src: "Assets/images/TeamRocket.png" },
+        { id: "teamRocket", src: "Assets/images/teamRocket.png" },
         { id: "coffing", src: "Assets/images/coffing.png" },
-        { id: "snank", src: "Assets/images/snank.png" },
+        { id: "snake", src: "Assets/images/snake.png" },
         { id: "rare", src: "Assets/images/rare.png" },
         { id: "rare2", src: "Assets/images/rare2.png" },
         { id: "rare3", src: "Assets/images/rare3.png" },

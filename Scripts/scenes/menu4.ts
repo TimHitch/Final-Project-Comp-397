@@ -24,9 +24,12 @@ module scenes {
 
             let gameInstructions = [];
             let instructionsArray = [
-                "",
-                "You are now a Pokemon Master!.",
-                "",
+                "      ",
+                "          ",
+                "You are now ",
+                "            ",
+                "A Pokemon Master!!",
+                "             ",
                 "Congratulations",
               
                 
@@ -40,7 +43,7 @@ module scenes {
                 gameInstructions[line].y = 20 + (2 * line);
 
                 this.addChild(new objects.Label(
-                    instructionsArray[line], "22px", "Broadway", "#E03C18",
+                    instructionsArray[line], "50px", "Broadway", "#E03C18",
                     300, 40 * line + 40, true));
             }
             this._finalScoreLabel = new objects.Label(

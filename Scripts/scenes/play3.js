@@ -30,18 +30,32 @@ var scenes;
             this._grass = new objects.Grass("background");
             this.addChild(this._grass);
             // island object
-            this._pokeball = new objects.Pokeball("pokeball");
-            this.addChild(this._pokeball);
+            this._rare = new objects.Rare("rare");
+            this.addChild(this._rare);
+            this._rare2 = new objects.Rare2("rare2");
+            this.addChild(this._rare2);
+            this._rare3 = new objects.Rare3("rare3");
+            this.addChild(this._rare3);
             // player object
             this._player = new objects.Player("Ash");
             this.addChild(this._player);
             this._themeSound = createjs.Sound.play("pokemon");
             this._themeSound.loop = -1;
             // charged cloud array
-            this._spearow = new Array();
+            this._teamRocket = new Array();
             for (var i = 0; i < 3; i++) {
-                this._spearow.push(new objects.Spearow("spearow"));
-                this.addChild(this._spearow[i]);
+                this._teamRocket.push(new objects.TeamRocket("teamRocket"));
+                this.addChild(this._teamRocket[i]);
+            }
+            this._coffing = new Array();
+            for (var i = 0; i < 3; i++) {
+                this._coffing.push(new objects.Coffing("coffing"));
+                this.addChild(this._coffing[i]);
+            }
+            this._snake = new Array();
+            for (var i = 0; i < 3; i++) {
+                this._snake.push(new objects.Snake("snake"));
+                this.addChild(this._snake[i]);
             }
             // include a collision managers
             this._collision = new managers.Collision();
@@ -63,13 +77,37 @@ var scenes;
         Play3.prototype.Update = function () {
             var _this = this;
             this._grass.update();
-            this._pokeball.update();
+            this._rare.update();
+            this._rare2.update();
+            this._rare3.update();
             this._player.update();
-            this._collision.check(this._player, this._pokeball);
-            this._spearow.forEach(function (spearowid) {
+            this._collision.check(this._player, this._rare);
+            this._collision.check(this._player, this._rare2);
+            this._collision.check(this._player, this._rare3);
+            this._teamRocket.forEach(function (spearowid) {
                 spearowid.update();
                 _this._collision.check(_this._player, spearowid);
-                _this._spearow.forEach(function (anotherspearowid) {
+                _this._teamRocket.forEach(function (anotherspearowid) {
+                    if (anotherspearowid != spearowid &&
+                        spearowid.isColliding === anotherspearowid.isColliding) {
+                        _this._collision.check(spearowid, anotherspearowid);
+                    }
+                });
+            });
+            this._coffing.forEach(function (spearowid) {
+                spearowid.update();
+                _this._collision.check(_this._player, spearowid);
+                _this._coffing.forEach(function (anotherspearowid) {
+                    if (anotherspearowid != spearowid &&
+                        spearowid.isColliding === anotherspearowid.isColliding) {
+                        _this._collision.check(spearowid, anotherspearowid);
+                    }
+                });
+            });
+            this._snake.forEach(function (spearowid) {
+                spearowid.update();
+                _this._collision.check(_this._player, spearowid);
+                _this._snake.forEach(function (anotherspearowid) {
                     if (anotherspearowid != spearowid &&
                         spearowid.isColliding === anotherspearowid.isColliding) {
                         _this._collision.check(spearowid, anotherspearowid);
@@ -84,10 +122,10 @@ var scenes;
                 core.changeScene();
             }
             this._changeSence();
-            if (core.score >= 1700) {
+            if (core.score >= 2400) {
                 createjs.Sound.stop();
                 createjs.Sound.play("winner");
-                core.scene = config.Scene.MENU4;
+                core.scene = config.Scene.MENU3;
                 core.changeScene();
             }
         };

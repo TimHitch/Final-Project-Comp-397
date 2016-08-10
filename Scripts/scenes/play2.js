@@ -122,7 +122,7 @@ var scenes;
                 core.changeScene();
             }
             this._changeSence();
-            if (core.score >= 1200) {
+            if (core.score >= 1600) {
                 createjs.Sound.stop();
                 createjs.Sound.play("winner");
                 core.scene = config.Scene.MENU3;

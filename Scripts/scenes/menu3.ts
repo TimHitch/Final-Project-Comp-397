@@ -64,7 +64,7 @@ module scenes {
                 "returnButton", 320, 440, true
             );
             this.addChild(this._returnButton);
-
+         
             // Start button event listener
             this._startButton.on("click", this._startButtonClick, this);
             this._returnButton.on("click", this._returnButtonClick, this);
