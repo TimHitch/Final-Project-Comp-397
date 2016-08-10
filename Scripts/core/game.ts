@@ -15,7 +15,7 @@ namespace core {
     // score, startingLives and currentLives variables
     export let score:number = 0;
     // export let highScore:number = 0;
-    export let startingLives:number = 18;
+    export let startingLives:number = 8;
     export let currentLives:number = startingLives;
     
     let startButton:objects.Button; // reference to our button class

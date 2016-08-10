@@ -6,7 +6,7 @@ var core;
     // score, startingLives and currentLives variables
     core.score = 0;
     // export let highScore:number = 0;
-    core.startingLives = 18;
+    core.startingLives = 8;
     core.currentLives = core.startingLives;
     var startButton; // reference to our button class
     // declare scene variables
