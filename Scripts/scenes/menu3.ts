@@ -4,7 +4,6 @@ module scenes {
         private _grass: objects.Grass;
         private _instructionsLabel: objects.Label;
         private _startButton: objects.Button;
-        private _returnButton: objects.Button;
         private _finalScoreLabel: objects.Label;
     
         /**
@@ -23,7 +22,8 @@ module scenes {
 
             let gameInstructions = [];
             let instructionsArray = [
-                "",
+                "                ",
+                "                ",
                 "You are one step away from becoming a Pokemon Master!.",
                 "Team Rocket has broke into the local pokemon center.",
                 "and is trying to steal the rare pokemon",
@@ -56,18 +56,15 @@ module scenes {
 
             // add the start button
             this._startButton = new objects.Button(
-                "startButton", 320, 360, true
+                "startButton", 320, 440, true
             );
             this.addChild(this._startButton);
 
-            this._returnButton = new objects.Button(
-                "returnButton", 320, 440, true
-            );
-            this.addChild(this._returnButton);
+            
          
             // Start button event listener
             this._startButton.on("click", this._startButtonClick, this);
-            this._returnButton.on("click", this._returnButtonClick, this);
+           
             // add this scene to the global scene container
             core.stage.addChild(this);
         }
@@ -84,10 +81,6 @@ module scenes {
             core.scene = config.Scene.PLAY3;
             core.changeScene();
         }
-        private _returnButtonClick(event: createjs.MouseEvent): void {
-            // Switch the scene
-            core.scene = config.Scene.MENU;
-            core.changeScene();
-        }
+        
     }
 }

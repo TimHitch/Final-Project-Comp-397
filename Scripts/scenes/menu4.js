@@ -41,30 +41,12 @@ var scenes;
             // Add Menu Label
             this.addChild(this._instructionsLabel);
             // add the start button
-            this._startButton = new objects.Button("startButton", 320, 360, true);
-            this.addChild(this._startButton);
-            this._returnButton = new objects.Button("returnButton", 320, 440, true);
-            this.addChild(this._returnButton);
-            // Start button event listener
-            this._startButton.on("click", this._startButtonClick, this);
-            this._returnButton.on("click", this._returnButtonClick, this);
             // add this scene to the global scene container
             core.stage.addChild(this);
         };
         Menu4.prototype.Update = function () {
             this._grass.update();
             // scene updates happen here...
-        };
-        // EVENT HANDLERS ++++++++++++++++
-        Menu4.prototype._startButtonClick = function (event) {
-            // Switch the scene
-            core.scene = config.Scene.MENU;
-            core.changeScene();
-        };
-        Menu4.prototype._returnButtonClick = function (event) {
-            // Switch the scene
-            core.scene = config.Scene.MENU;
-            core.changeScene();
         };
         return Menu4;
     }(objects.Scene));

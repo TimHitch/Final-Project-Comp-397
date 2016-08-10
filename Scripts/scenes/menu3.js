@@ -20,7 +20,8 @@ var scenes;
         Menu3.prototype.Start = function () {
             var gameInstructions = [];
             var instructionsArray = [
-                "",
+                "                ",
+                "                ",
                 "You are one step away from becoming a Pokemon Master!.",
                 "Team Rocket has broke into the local pokemon center.",
                 "and is trying to steal the rare pokemon",
@@ -42,13 +43,10 @@ var scenes;
             // Add Menu Label
             this.addChild(this._instructionsLabel);
             // add the start button
-            this._startButton = new objects.Button("startButton", 320, 360, true);
+            this._startButton = new objects.Button("startButton", 320, 440, true);
             this.addChild(this._startButton);
-            this._returnButton = new objects.Button("returnButton", 320, 440, true);
-            this.addChild(this._returnButton);
             // Start button event listener
             this._startButton.on("click", this._startButtonClick, this);
-            this._returnButton.on("click", this._returnButtonClick, this);
             // add this scene to the global scene container
             core.stage.addChild(this);
         };
@@ -60,11 +58,6 @@ var scenes;
         Menu3.prototype._startButtonClick = function (event) {
             // Switch the scene
             core.scene = config.Scene.PLAY3;
-            core.changeScene();
-        };
-        Menu3.prototype._returnButtonClick = function (event) {
-            // Switch the scene
-            core.scene = config.Scene.MENU;
             core.changeScene();
         };
         return Menu3;
